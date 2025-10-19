@@ -1,11 +1,24 @@
-// import the EmployeeForm we created
+import React, { useState } from 'react';
 import EmployeeForm from './Components/EmployeeForm';
 
-// app function, and runs the employee form
 function App() {
+  const [employees, setEmployees] = useState([]);
+
+  function addEmployee(emp) {
+    setEmployees(function(prev) {
+      return prev.concat(emp);
+    });
+  }
+
+  function saveData() {
+    localStorage.setItem('employees', JSON.stringify(employees));
+    alert('Saved to Local Storage');
+  }
+
   return (
     <div className="App">
-      <EmployeeForm />
+      <EmployeeForm onAdd={addEmployee} />
+      <button type="button" className="employee-form-save" onClick={saveData}>Save</button>
     </div>
   );
 }

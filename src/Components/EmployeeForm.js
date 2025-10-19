@@ -18,11 +18,19 @@ class EmployeeForm extends React.Component {
     }
 
     //when submit is clicked the values inputed by the user are logged in the console and then wiped
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log(this.state);
-        this.setState({name: '', email: '', title: '', department: ''});
-    }
+handleSubmit(event) {
+  event.preventDefault();
+  if (this.props.onAdd) {
+    this.props.onAdd({
+      name: this.state.name,
+      email: this.state.email,
+      title: this.state.title,
+      department: this.state.department
+    });
+  }
+  this.setState({name: '', email: '', title: '', department: ''});
+}
+
 
     // renders/outputs whats going to appear on screen
 
