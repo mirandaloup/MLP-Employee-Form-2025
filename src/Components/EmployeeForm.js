@@ -25,7 +25,8 @@ handleSubmit(event) {
       name: this.state.name,
       email: this.state.email,
       title: this.state.title,
-      department: this.state.department
+      department: this.state.department,
+      date: new Date().toLocaleString()
     });
   }
   this.setState({name: '', email: '', title: '', department: ''});

@@ -35,6 +35,7 @@ useEffect(function() {
     <div className="App">
       <EmployeeForm onAdd={addEmployee} />
       <button type="button" className="employee-form-save" onClick={saveData}>Save</button>
+      <h2 style={{ textAlign: 'center' }}>Current Employee Records</h2>
       <EmployeeList employees={employees} />
     </div>
   );
